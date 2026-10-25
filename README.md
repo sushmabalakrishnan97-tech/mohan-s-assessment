@@ -13,6 +13,8 @@ Allow several GB of free disk space; the two GWAS downloads total approximately 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+or
+python -m pip install --only-binary=:all: -r requirements.txt
 ```
 
 On Linux/macOS, use `.venv/bin/python` instead of `.\.venv\Scripts\python.exe`.
