@@ -724,7 +724,7 @@ def analyse_use_case2(out):
     pd.DataFrame(sensitivities).to_csv(out / 'sensitivity_summary.csv', index=False)
     # PCA after annotation/filtering; no sample exclusion or group-based correction.
     top_variance = genes.var(axis=1).nlargest(min(5000, len(genes))).index
-    x = genes.loc[top_variance].T.to_numpy()
+    x = genes.loc[top_variance].T.to_numpy(copy=True)
     x -= x.mean(axis=0)
     u, singular, _ = np.linalg.svd(x, full_matrices=False)
     fraction = singular ** 2 / (singular ** 2).sum()
